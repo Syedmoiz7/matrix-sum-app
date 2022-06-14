@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="cont">
+        <h1>Matrix Sum App</h1>
+        <form onsubmit="start(); return false">
+            <input required type="number" id="input1" min="2">
+            <label for="">X</label>
+            <input required type="number" id="input2" min="2">
+            <button type="submit"> Start </button>
+        </form>
+    </div>
+
+    <!-- <input type="number"  id="result">  -->
+    <form onsubmit="add(); return false" id="f" class="hidden">
+        <div>
+            <div id="first_Matrix"></div>
+            <div id="p">
+                <p id="para"></p>
+            </div>
+            <div id="second_Matrix"></div>
+            <button type="submit" id="sum"></button>
+            <div id="Final"></div>
+        </div>
+        
+    </form>
+
+    <script>
+        function start() {
+            let input1 = Number(document.querySelector("#input1").value);
+            let input2 = Number(document.querySelector("#input2").value);
+            if (input1 !== input2) {
+                alert("Enter same number for both inputs");
+            }
+            let value1 = document.querySelector("#first_Matrix");
+            let value2 = document.querySelector("#second_Matrix");
+
+            for (let i = 0; i < input1; i++) {
+                if (input1 !== input2) {
+                    break;
+                }
+                for (let j = 0; j < input2; j++) {
+                    value1.innerHTML += `<input required type="number" class="matrix"   id="matrix1${i}${j}" value="0">`;
+                }
+                value1.innerHTML += `<br>`;
+            }
+
+            let plusSign = document.querySelector("#para");
+            plusSign.innerHTML = "+"
+
+            let sum = document.querySelector("#sum");
+            sum.innerHTML = "Sum";
+
+            for (let i = 0; i < input1; i++) {
+                if (input1 !== input2) {
+                    break;
+                }
+                for (let j = 0; j < input2; j++) {
+                    value2.innerHTML += `<input required type="number" class="matrix" id="matrix2${i}${j}" value="0">`;
+                }
+                value2.innerHTML += `<br>`;
+            }
+            document.querySelector("#f").classList.remove("hidden")
+        }
+
+        function add() {
+            let input1 = Number(document.querySelector("#input1").value);
+            let input2 = Number(document.querySelector("#input2").value);
+            let addition = document.querySelector("#Final");
+            for (let i = 0; i < input1; i++) {
+                for (let j = 0; j < input2; j++) {
+                    let result1 = Number ( document.querySelector(`#matrix1${i}${j}`).value);
+                    let result2 = Number ( document.querySelector(`#matrix2${i}${j}`).value);
+                    let result = result1 + result2;
+                    addition.innerHTML += `<input disabled type="number" value="${result}" id="result">`;                
+                }
+                addition.innerHTML += `<br>`;
+            }
+           
+        }
+
+
+
+    </script>
+
+
+
+</body>
+
+</html>

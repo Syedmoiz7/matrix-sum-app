@@ -1,0 +1,27 @@
+#first_Matrix , #second_Matrix , #Final {
+    display: inline-block;
+    padding: 5px;
+    border: 1px solid black;
+}
+/* #second_Matrix{
+    position: relative;
+    left: 50px;
+} */
+#f {
+    position: relative;
+    top: 50px;
+}
+.hidden {
+    visibility: hidden;
+}
+.matrix{
+    width: 40px;  
+}
+#p {
+    /* border: 1px solid black; */
+    display: inline-block;
+    margin: 10px;
+}
+#result {
+    width: 40px;
+} 
